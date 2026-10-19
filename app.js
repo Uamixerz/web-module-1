@@ -26,7 +26,7 @@ app.use((req, res) => {
   });
 });
 
-app.use((error, req, res, next) => {
+app.use((error, req, res) => {
   if (error instanceof SyntaxError && error.status === 400 && "body" in error) {
     return res.status(400).json({
       error: {
